@@ -2,7 +2,7 @@
 
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
-postgres_local_base = 'postgresql://postgres:@localhost/'
+postgres_local_base = 'mysql://root:blogger55@localhost/'
 database_name = 'flaskjwtauth'
 
 
@@ -26,7 +26,7 @@ class TestingConfig(BaseConfig):
     DEBUG = True
     TESTING = True
     BCRYPT_LOG_ROUNDS = 4
-    SQLALCHEMY_DATABASE_URI = postgres_local_base + database_name + '_test'
+    SQLALCHEMY_DATABASE_URI = postgres_local_base + database_name + 'test'
     PRESERVE_CONTEXT_ON_EXCEPTION = False
 
 
@@ -34,4 +34,4 @@ class ProductionConfig(BaseConfig):
     """Production configuration."""
     SECRET_KEY = 'my_precious'
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql:///example'
+    SQLALCHEMY_DATABASE_URI = 'mysql:///mysql'
