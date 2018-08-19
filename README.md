@@ -17,7 +17,16 @@ Source : https://stackoverflow.com/questions/17000835/token-authentication-vs-co
     - Cookies are sent out for every single request, (even for requests that don't require authentication).
     - Vulnerable to XSRF. You have to implement extra measures to make your site protected against cross site request forgery.
     - Bound to a single domain. (So if you have a single page application that makes requests to multiple services, you can end up            doing crazy stuff like a reverse proxy.)
-    
+
+### Auth Workflow
+
+    - Client provides email and password, which is sent to the server
+    - Server then verifies that email and password are correct and responds with an auth token
+    - Client stores the token and sends it along with all subsequent requests to the API
+    - Server decodes the token and validates it
+
+This cycle repeats until the token expires or is revoked. In the latter case, the server issues a new token.
+
 
 ## Quick Start
 
